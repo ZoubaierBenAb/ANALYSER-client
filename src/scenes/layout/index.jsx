@@ -20,7 +20,7 @@ function Layout() {
         isSideBarOpen={isSideBarOpen}
         setIsSideBarOpen={setIsSideBarOpen}
         isNonMobile={isNonMobile}
-        drawerWidth="250px"
+        drawerWidth="300px"
       />
       <Box flexGrow={1}>
         <Navbar 
