@@ -5,7 +5,12 @@ import Navbar from "components/Navbar";
 import SideBar from "components/SideBar";
 import { useSelector } from "react-redux";
 import { useGetUserQuery } from "state/api";
+import { useLocation } from "react-router-dom";
 function Layout() {
+  const location = useLocation()
+  console.log("🚀 ~ file: index.jsx:11 ~ Layout ~ location:", location)
+ 
+
   const isNonMobile = useMediaQuery("(min-width : 600px)");
 
   const userId = useSelector((state)=>state.global.userId)
@@ -20,7 +25,7 @@ function Layout() {
         isSideBarOpen={isSideBarOpen}
         setIsSideBarOpen={setIsSideBarOpen}
         isNonMobile={isNonMobile}
-        drawerWidth="300px"
+        drawerWidth={location.pathname === '/dashboard' ? '400px' : '300px'}
       />
       <Box flexGrow={1}>
         <Navbar 

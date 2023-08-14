@@ -11,7 +11,6 @@ const OverviewChart = ({ isDashboard = false, view }) => {
     if (!data) return [];
 
     const { monthlyData } = data;
-    console.log("🚀 ~ file: OverviewChart.jsx:14 ~ const[totalSalesLine,totalUnitsLine]=useMemo ~ monthlyData :", monthlyData )
     const totalSalesLine = {
       id: "totalSales",
       color: theme.palette.secondary.main,

@@ -4,7 +4,7 @@ import { useGetTransactionsQuery } from "state/api";
 import Header from "components/Header";
 import { useTheme } from "@emotion/react";
 import { Box } from "@mui/material";
-import DataGridCustomToolbar from 'components/DataGridCustomToolbar'
+import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 function Transactions() {
   const theme = useTheme();
 
@@ -18,7 +18,7 @@ function Transactions() {
     sort: JSON.stringify(sort),
     search,
   });
-  const [searchInput,setSearchInput]= useState('')
+  const [searchInput, setSearchInput] = useState("");
 
   const columns = [
     {
@@ -42,7 +42,6 @@ function Transactions() {
       renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
     },
   ];
-  console.log("🚀 ~ file: index.jsx:14 ~ Transactions ~ data,:", data);
   return (
     <Box m="1.5rem 2.5rem">
       <Header title="TRANSACTIONS" subTitle="Your Transactions" />
@@ -81,17 +80,19 @@ function Transactions() {
           rows={(data && data.transactions) || []}
           columns={columns}
           rowCount={(data && data.total) || 0}
-          rowsPerPageOption={[20,50,100]}
+          rowsPerPageOption={[20, 50, 100]}
           pagination
           page={page}
           pageSize={pageSize}
           paginationMode="server"
           sortingMode="server"
-          onPageChange={(newPage)=>setPage(newPage)}
-          onPageSizeChange={(newPageSize)=>setPageSize(newPageSize)}
-          onSortModelChange={(newSortModel)=>setSort(newSortModel)}
-          components={{Toolbar:DataGridCustomToolbar}}
-          componentsProps={{toolbar:{setSearch,searchInput,setSearchInput}}}
+          onPageChange={(newPage) => setPage(newPage)}
+          onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+          onSortModelChange={(newSortModel) => setSort(newSortModel)}
+          components={{ Toolbar: DataGridCustomToolbar }}
+          componentsProps={{
+            toolbar: { setSearch, searchInput, setSearchInput },
+          }}
         />
       </Box>
     </Box>
